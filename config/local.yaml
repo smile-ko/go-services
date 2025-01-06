@@ -1,0 +1,9 @@
+server:
+  port: 8082
+  mode: "dev"
+postgresql:
+  host: 127.0.0.1
+  port: 5433
+  user: postgres
+  password: 194393
+  db_name: go_services
