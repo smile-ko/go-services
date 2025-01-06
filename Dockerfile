@@ -1,4 +1,4 @@
-FROM golang:1.23
+FROM golang:1.22
 
 WORKDIR /usr/src/app
 
@@ -9,4 +9,6 @@ RUN go mod download
 
 COPY . ./
 
-EXPOSE 8082
+CMD ["go", "run", "./cmd/server"]
+
+EXPOSE 8002
