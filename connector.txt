@@ -1,0 +1,22 @@
+curl -X POST http://localhost:8083/connectors \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "postgres-go-db-task-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "194393",
+    "database.dbname": "go_services",
+    "database.server.name": "dbserver1",
+    "plugin.name": "pgoutput",
+    "slot.name": "debezium_go_db_task_slot",
+    "publication.name": "dbserver1_publication",
+    "table.include.list": "public.go_db_task",
+    "database.history.kafka.bootstrap.servers": "broker:19092",
+    "database.history.kafka.topic": "schema-changes.go_services",
+    "topic.prefix": "go_services"
+  }
+}'

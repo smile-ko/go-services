@@ -8,7 +8,7 @@ import (
 func Run() {
 	LoadConfig()
 	InitPostgresql()
-	InitKafka()
+	// InitKafka()
 
 	// Init router
 	r := InitRouter()

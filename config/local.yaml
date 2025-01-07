@@ -3,7 +3,10 @@ server:
   mode: "dev"
 postgresql:
   host: 127.0.0.1
-  port: 5433
+  port: 5432
   user: postgres
   password: 194393
   db_name: go_services
+# kafka:
+#   host: 127.0.0.1
+#   port: 9092

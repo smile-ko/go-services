@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"go-services/internal/dto"
+	"go-services/internal/po"
 	"go-services/internal/services"
 	"go-services/pkg/response"
 	"net/http"
@@ -26,6 +27,19 @@ func (tc *TaskController) Create(c *gin.Context) {
 		response.ErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
+
+	task := &po.Task{
+		Title:       req.Title,
+		Description: req.Description,
+		Completed:   req.Completed,
+	}
+
+	if err := tc.taskService.Create(task); err != nil {
+		response.ErrorResponse(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	response.SuccessResponse(c, http.StatusCreated, task)
 }
 
 func (tc *TaskController) GetOne(c *gin.Context) {
