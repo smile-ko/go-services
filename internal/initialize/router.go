@@ -19,10 +19,12 @@ func InitRouter() *gin.Engine {
 	}
 
 	userRouter := routes.RouterGroupApp.User
+	taskRouter := routes.RouterGroupApp.Task
 
 	mainRouter := r.Group("/api/v1")
 	{
 		userRouter.InitUserRouter(mainRouter)
+		taskRouter.InitTaskRouter(mainRouter)
 	}
 
 	return r

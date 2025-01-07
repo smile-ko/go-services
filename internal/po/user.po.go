@@ -10,7 +10,6 @@ type User struct {
 	Username string `gorm:"column:user_name; type:varchar(255); not null;"`
 	Password string `gorm:"column:password; type:varchar(255); not null;"`
 	IsActive string `gorm:"column:is_active; type:boolean; not null; default:true;"`
-	Roles    []Role `gorm:"many2many:go_user_roles;"`
 }
 
 func (u *User) TableName() string {

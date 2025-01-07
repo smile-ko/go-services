@@ -25,7 +25,7 @@ func InitPostgresql() {
 }
 
 func migrateTables() {
-	err := global.PDB.AutoMigrate(&po.User{}, &po.Role{})
+	err := global.PDB.AutoMigrate(&po.User{}, &po.Task{})
 	if err != nil {
 		panic("failed to migrate database")
 	}

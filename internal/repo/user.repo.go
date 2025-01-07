@@ -24,6 +24,12 @@ func (ur *UserRepo) Create(user *po.User) error {
 	return ur.db.Create(user).Error
 }
 
+func (ur *UserRepo) GetAll() ([]po.User, error) {
+	var users []po.User
+	err := ur.db.Find(&users).Error
+	return users, err
+}
+
 func (ur *UserRepo) GetByID(id uint) (*po.User, error) {
 	var user po.User
 	err := ur.db.First(&user, id).Error

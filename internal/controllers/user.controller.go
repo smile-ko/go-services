@@ -47,6 +47,15 @@ func (uc *UserController) Create(c *gin.Context) {
 	response.SuccessResponse(c, http.StatusCreated, user)
 }
 
+func (uc *UserController) GetAll(c *gin.Context) {
+	users, err := uc.userService.GetAll()
+	if err != nil {
+		response.ErrorResponse(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+	response.SuccessResponse(c, http.StatusOK, users)
+}
+
 func (uc *UserController) GetOne(c *gin.Context) {
 	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
 	if err != nil {

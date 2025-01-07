@@ -19,6 +19,10 @@ func (us *UserService) GetInfoUser() string {
 	return us.UserRepo.GetInfoUser()
 }
 
+func (us *UserService) GetAll() ([]po.User, error) {
+	return us.UserRepo.GetAll()
+}
+
 func (us *UserService) CreateUser(user *po.User) error {
 	return us.UserRepo.Create(user)
 }
